@@ -1,11 +1,16 @@
 import { Route, Routes } from "react-router-dom"
-import { Auth } from "./pages/auth/Auth"
+import { Auth } from "@/pages/auth/Auth"
+import { SignupCard } from "@/components/organisms/Auth/signupCard"
+import { SigninCard } from "@/components/organisms/Auth/signinCard"
+import { Home } from "./pages/Home/Home"
 
 export const Router = ()=>{
     return(
         <Routes>
             <Route path="/" element={<>Home</>}/>
-            <Route path='/auth' element={<Auth />}/>
+            <Route path="/home" element={<Home />}/>
+            <Route path='/auth/signup' element={<Auth> <SignupCard /> </Auth>}/>
+            <Route path='/auth/signin' element={<Auth> <SigninCard /> </Auth>}/>
         </Routes>
     )
 }
