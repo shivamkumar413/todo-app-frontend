@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { useSignIn } from "@/hooks/apis/useSignin"
-import { Loader, Loader2Icon, LoaderCircleIcon } from "lucide-react"
+import { AlertTriangle, Loader, Loader2Icon, LoaderCircleIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -59,6 +59,21 @@ export const SigninCard = ()=>{
             <CardHeader>
                 <CardTitle>Sign in</CardTitle>
                 <CardDescription>Sign in to access your account</CardDescription>
+
+                {
+                    validationError &&
+                        <div className="flex bg-gray-200 p-2 rounded-md">
+                            <span className="text-red-400 mr-2"><AlertTriangle /></span>
+                            <span className="text-gray-700">{validationError.message}</span>
+                        </div>
+                }
+
+                {error &&
+                    <div className="flex bg-gray-200 p-2 rounded-md">
+                        <span className="text-red-400 mr-2"><AlertTriangle /></span>
+                        <span className="text-gray-700">{error.message}</span>
+                    </div>    
+                }
 
             </CardHeader>
 

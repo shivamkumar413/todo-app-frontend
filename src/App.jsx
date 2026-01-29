@@ -1,3 +1,4 @@
+import { CreateTaskModal } from '@/components/molecules/CreateTaskModal/CreateTaskModal'
 import { Router } from './Router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <Router />
+        <CreateTaskModal />
       </QueryClientProvider>
     </>
   )
