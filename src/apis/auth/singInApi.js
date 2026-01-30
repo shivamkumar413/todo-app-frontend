@@ -10,7 +10,7 @@ export const signIn = async ({email,password})=>{
         )
 
         console.log("user signed in successfully : ",response)
-        return response;
+        return response?.data?.data;
     } catch (error) {
         console.log("Error while signing in user : ",error);
         throw error;
